@@ -1,0 +1,59 @@
+{
+    "root":true,
+    "env": {
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended",
+        "prettier/@typescript-eslint",
+        "plugin:functional/recommended"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "plugins": [
+        "@typescript-eslint", "prettier", "functional"
+    ],
+    "rules": {
+        "prettier/prettier": "warn",
+        "no-console":0,
+        "new-cap":"off",
+        "import/no-cycle":0,
+        "import/prefer-default-import":0,
+        "import/prefer-default-export":0,
+        "no-param-reassign":0,
+        "camelcase":"off",
+        "@typescript-eslint/camelcase": ["error", { "properties": "never" }],
+        "@typescript-eslint/ban-ts-ignore":0,
+        "functional/prefer-readonly-type": "off"
+    },
+    "overrides": [
+        {
+            "files": [ "tests/**.*"],
+            "rules": {
+                "functional/no-expression-statement": "off",
+                "functional/functional-parameters": "off"
+            }
+        }
+    ],
+    "settings": {
+        "import/extensions": [".js",".jsx",".ts",".tsx"],
+        "import/parsers": {
+          "@typescript-eslint/parser": [".ts",".tsx"]
+        },
+        "import/resolver": {
+            "node": {
+                "extensions": [".js",".jsx",".ts",".tsx"]
+            }
+        }
+    }
+}

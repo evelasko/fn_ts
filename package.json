@@ -1,22 +1,11 @@
 {
-  "name": "node-typescript-boilerplate",
-  "version": "0.0.0",
-  "description": "Minimalistic boilerplate to quick-start Node.js development in TypeScript.",
+  "name": "functionalts",
+  "version": "0.0.1",
+  "description": "Typescript Functional Composition Playground",
+  "author": "Enrique Velasco",
+  "license": "Apache-2.0",
   "engines": {
-    "node": ">= 12.13 <13"
-  },
-  "devDependencies": {
-    "@types/jest": "^24.0.21",
-    "@types/node": "^12.12.5",
-    "jest": "~24.9.0",
-    "prettier": "~1.18.2",
-    "rimraf": "^3.0.0",
-    "ts-jest": "^24.1.0",
-    "tslint": "~5.20.1",
-    "tslint-config-prettier": "1.18.0",
-    "tslint-microsoft-contrib": "~6.2.0",
-    "tsutils": "~3.17.0",
-    "typescript": "~3.7.2"
+    "node": ">= 13"
   },
   "scripts": {
     "clean": "rimraf coverage build tmp",
@@ -24,11 +13,54 @@
     "build:watch": "tsc -w -p tsconfig.release.json",
     "lint": "tslint -t stylish --project \"tsconfig.json\"",
     "test": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "dev": "ts-node-dev --no-notify --respawn --transpileOnly"
   },
-  "author": "Jakub Synowiec <github@jakubsynowiec.info>",
-  "license": "Apache-2.0",
+  "prettier": {
+    "printWidth": 100,
+    "tabWidth": 4,
+    "singleQuote": true,
+    "semi": false,
+    "trailingComma": "none"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint"
+    ]
+  },
   "dependencies": {
-    "tslib": "~1.10.0"
+    "axios": "^0.19.0",
+    "btoa": "^1.2.1",
+    "data.either": "^1.5.2",
+    "data.task": "^3.1.2",
+    "fantasy-identities": "^0.0.1",
+    "fluture": "^12.0.2",
+    "folktale": "^3.0.1-ts",
+    "fp-ts": "^2.3.1",
+    "futurize": "^1.2.0",
+    "immutable": "^4.0.0-rc.12",
+    "immutable-ext": "^1.1.5",
+    "ramda": "^0.26.1",
+    "request": "^2.88.0",
+    "sanctuary": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.21",
+    "@types/node": "^12.12.5",
+    "@types/ramda": "^0.26.38",
+    "@types/request": "^2.48.4",
+    "@typescript-eslint/eslint-plugin": "^2.12.0",
+    "@typescript-eslint/parser": "^2.12.0",
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-functional": "^1.0.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "jest": "~24.9.0",
+    "prettier": "~1.19.1",
+    "rimraf": "^3.0.0",
+    "ts-jest": "^24.1.0",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "tsutils": "~3.17.0",
+    "typescript": "^3.7.3"
   }
 }
